@@ -1,0 +1,37 @@
+.container {
+	padding: 80px;
+	
+}
+
+body{
+
+background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
+/*background-image: url("./images/news.jpg");*/
+}
+
+.brand-logo{
+	text-align: center;
+	font-family: 'Tangerine', cursive;
+	font-size: 70px;
+	margin: 5px;
+	font-weight: bold;
+	color: black;
+}
+
+.right{
+	margin: 10px;
+
+}
+
+.navbar-fixed {
+	color: black;
+}
+
+span{
+	color: black;
+}
+
+
+/*.navbar-inner {
+    background:transparent;
+}*/
