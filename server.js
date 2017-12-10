@@ -33,16 +33,24 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 
-//UNCOMMENT BELOW WHEN READY to use the PRODUCTION ENVIRONMENT ->> HEROKU, >> ie. NOT the DEV Environment
+var MONGODB_URI = "mongodb://heroku_34xqwwfh:2t46te52oeve8kpc81f9lfms9k@ds129966.mlab.com:29966/heroku_34xqwwfh";
 
+mongoose.Promise = Promise;
+var mongoDB = process.env.MONGODB_URI || "mongodb://localhost/newScraper";
+mongoose.connect(mongoDB, function(error){
+    if (error) throw error;
+    useMongoClient: true;
+    console.log("Mongoose connection is successful!!")
 
+});
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
-mongoose.Promise = Promise;
-mongoose.connect("mongodb://heroku_34xqwwfh:2t46te52oeve8kpc81f9lfms9k@ds129966.mlab.com:29966/heroku_34xqwwfh", {
-  useMongoClient: true
-});
+// mongoose.Promise = Promise;
+
+// mongoose.connect("mongodb://localhost/newScraper", {
+//   useMongoClient: true
+// });
 
 // Routes
 
