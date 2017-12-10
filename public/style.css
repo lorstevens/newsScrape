@@ -31,7 +31,9 @@ span{
 	color: black;
 }
 
-
+#card{
+padding: 10px;
+}
 /*.navbar-inner {
     background:transparent;
 }*/

@@ -27,6 +27,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Use express.static to serve the public folder as a static directory
 app.use(express.static("public"));
 
+var exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
@@ -35,6 +40,10 @@ mongoose.connect("mongodb://localhost/newScraper", {
 });
 
 // Routes
+
+app.get('/', function(req,res){
+  res.render('index');
+});
 
 // A GET route for scraping the echojs website
 app.get("/scrape", function(req, res) {
@@ -97,7 +106,7 @@ app.get("/articles/:id", function(req, res) {
     .populate("note")
     .then(function(dbArticle) {
       // If we were able to successfully find an Article with the given id, send it back to the client
-      res.json(dbArticle);
+      res.render("saved", {savedArticle:dbArticle});
     })
     .catch(function(err) {
       // If an error occurred, send it to the client
@@ -118,7 +127,7 @@ app.post("/articles/:id", function(req, res) {
     })
     .then(function(dbArticle) {
       // If we were able to successfully update an Article, send it back to the client
-      res.json(dbArticle);
+      res.render("saved", {savedArticle: dbArticle});
     })
     .catch(function(err) {
       // If an error occurred, send it to the client
@@ -127,19 +136,20 @@ app.post("/articles/:id", function(req, res) {
 });
 
 
-app.post("/", function(req, res) {
-  // Grab every document in the Articles collection
-  db.Article
-    .find({})
-    .then(function(dbArticle) {
-      // If we were able to successfully find Articles, send them back to the client
-      res.json(dbArticle);
-    })
-    .catch(function(err) {
-      // If an error occurred, send it to the client
-      res.json(err);
-    });
-});
+// app.post("/", function(req, res) {
+//   // Grab every document in the Articles collection
+//   db.Article
+//     .find({})
+//     .then(function(dbArticle) {
+//       // If we were able to successfully find Articles, send them back to the client
+//       // res.json(dbArticle);
+//       res.json(dbArticle);
+//     })
+//     .catch(function(err) {
+//       // If an error occurred, send it to the client
+//       res.json(err);
+//     });
+// });
 
 // Start the server
 app.listen(PORT, function() {
