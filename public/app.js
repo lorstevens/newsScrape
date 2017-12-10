@@ -15,9 +15,10 @@ $.getJSON("/articles", function(data) {
             "<div class='card' data-id=" +
              data[i]._id +
             "'><h5>" + data[i].title +
-            "</h5><p>" + "</p>" +
+            "</h><p>" + "</p>" +
             "<p><a href='" + data[i].link +
             "' class='btn btn-primary' role='button'>Link</a> <a href='/articles/" +
+            "' class='btn btn-primary' role='button'>Comment</a> <a href='/notes/" +
              data[i]._id + "' class='btn btn-default' role='button' id='saveArticle'>Save Article</a></p>" +
             "</div>")
     }
