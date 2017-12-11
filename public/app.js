@@ -18,7 +18,6 @@ $.getJSON("/articles", function(data) {
             "</h><p>" + "</p>" +
             "<p><a href='" + data[i].link +
             "' class='btn btn-primary' role='button'>Link</a> <a href='/articles/" +
-            "' class='btn btn-primary' role='button'>Comment</a> <a href='/notes/" +
              data[i]._id + "' class='btn btn-default' role='button' id='saveArticle'>Save Article</a></p>" +
             "</div>")
     }
@@ -27,7 +26,7 @@ $.getJSON("/articles", function(data) {
 
 // Whenever someone clicks a p tag
 $(document).on("click", "div", function() {
-    alert("hey")
+
     // Empty the notes from the note section
     $("#notes").empty();
     // Save the id from the p tag
