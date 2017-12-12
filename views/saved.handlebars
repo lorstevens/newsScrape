@@ -1,7 +1,16 @@
 <h1>Saved Articles<h1>
 
+
+
+<div id = "savedArticles">
+
 {{#each savedArticle}}
-  <p>Title: {{title}}</p>
-  <p>Link: {{link}}</p>
-  <p>Note: {{note}}</p>
+            <div class="card small">
+                <p><h5>{{this.title}}</h5></p>
+
+                <a class="btn waves-effect waves-light" type="submit" name="action" href= "{{this.link}}">Link</a>
+
+                  <button class="save btn waves-effect waves-light" type="submit" name="action">Delete Article</button>
+             </div>
 {{/each}}
+</div>
