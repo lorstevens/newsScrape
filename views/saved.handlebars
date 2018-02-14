@@ -1,14 +1,28 @@
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Saved Articles</a>
+
+<div class="navbar-fixed">
+  <nav class="transparent z-depth-0">
+    <div class="nav-wrapper">
+      <div class="row">
+        <div class="col s12">
+        	<a href="#" data-activates="mobile-demo" class="button-collapse show-on-small blue-text text-darken-2"><i class="material-icons">menu</i></a>
+          	<ul class="nav navbar-nav">
+      			<li><a class="blue-text text-darken-2" href="/">Home</a></li>
+      			<li class="active"><a class=" blue-text text-darken-2" href="/saved">Saved Articles</a></li>
+    		</ul>
+        </div>
+      </div>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="https://codepen.io/collection/nbBqgY/" target="_blank">Sass</a></li>
+        <li><a href="https://codepen.io/collection/nbBqgY/" target="_blank">Components</a></li>
+        <li><a href="https://codepen.io/collection/nbBqgY/" target="_blank">Javascript</a></li>
+        <li><a href="https://codepen.io/collection/nbBqgY/" target="_blank">Mobile</a></li>
+      </ul>
     </div>
-    <ul class="nav navbar-nav">
-      <li><a href="/">Home</a></li>
-      <li class="active"><a href="/saved">Saved Articles</a></li>
-    </ul>
-  </div>
-</nav>
+  </nav>
+</div>
+
+
+
 <div class="jumbotron text-center">
   <div class="overlay">
   </div>
@@ -16,7 +30,6 @@
   </div>
   <div class="caption">
     <h1>Saved Articles</h1>
-    <p>Your Saved Articles</p>
   </div>
 </div>
 <div class="container-fluid article-container">
@@ -24,15 +37,18 @@
 
 <footer class="footer">
   <div class="container">
-    <p>New York Times Mongo Scraper</p>
   </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+   <link href="//cdn.bri.io/mbox/dist/mbox-0.0.5.min.css" rel="stylesheet">
+<script src="//cdn.bri.io/mbox/dist/mbox-0.0.5.min.js"></script>
+
       
-  <script src="./javascript/saved.js"></script>
+    <script src="./javascript/saved.js"></script>

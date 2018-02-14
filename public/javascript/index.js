@@ -45,20 +45,25 @@ $(document).ready(function() {
     // article panel
     var panel = $(
       [
-        "<div class='panel panel-default'>",
-        "<div class='panel-heading'>",
-        "<h3>",
+        "<div class='row'>",
+        "<div class='col s12 m6 push-m3'>",
+        "<div class='card blue-grey darken-1'>",
+        "<h4>",
         "<a class='article-link' target='_blank' href='" + article.url + "'>",
         article.headline,
         "</a>",
+        "<div>",
         "<a class='btn btn-success save'>",
         "Save Article",
         "</a>",
-        "</h3>",
         "</div>",
-        "<div class='panel-body'>",
-        article.summary,
+        "</h4>",
+        "<h2 class ='article-summary'>" + article.summary + "</h2>",
         "</div>",
+        "</div>",
+        
+  
+        
         "</div>"
       ].join("")
     );
@@ -97,7 +102,7 @@ $(document).ready(function() {
     // When we rendered the article initially, we attatched a javascript object containing the headline id
     // to the element using the .data method. Here we retrieve that.
     var articleToSave = $(this)
-      .parents(".panel")
+      .parents(".row")
       .data();
     articleToSave.saved = true;
     // Using a patch method to be semantic since this is an update to an existing record in our collection

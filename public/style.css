@@ -9,19 +9,24 @@ background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
 /*background-image: url("./images/news.jpg");*/
 }
 
-.brand-logo{
-	text-align: center;
-	font-family: 'Tangerine', cursive;
-	font-size: 70px;
-	margin: 5px;
-	font-weight: bold;
-	color: black;
-}
 
 .right{
 	margin: 10px;
 
 }
+
+.caption{
+	text-align: center;
+	font-family: 'Tangerine', cursive;
+	font-size: 60px;
+}
+
+.article-summary{
+	font-family: "Courier New";
+	font-size: 20px;
+}
+
+
 
 .navbar-fixed {
 	color: black;
@@ -31,8 +36,9 @@ span{
 	color: black;
 }
 
-#card{
-padding: 10px;
+.card{
+padding: 5%;
+margin: 0 auto;
 }
 /*.navbar-inner {
     background:transparent;

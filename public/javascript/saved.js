@@ -47,20 +47,26 @@ $(document).ready(function() {
     // article panel
     var panel = $(
       [
-        "<div class='panel panel-default'>",
-        "<div class='panel-heading'>",
-        "<h3>",
+       "<div class='row'>",
+        "<div class='col s12 m6 push-m3'>",
+        "<div class='card blue-grey darken-1'>",
+        "<h4>",
         "<a class='article-link' target='_blank' href='" + article.url + "'>",
         article.headline,
         "</a>",
+        "<div>",
         "<a class='btn btn-danger delete'>",
         "Delete From Saved",
         "</a>",
-        "<a class='btn btn-info notes'>Article Notes</a>",
-        "</h3>",
         "</div>",
-        "<div class='panel-body'>",
+        "<div>",
+        "<a class='btn btn-info notes'>Article Notes</a>",
+        "</div>",
+        "</h4>",
+        "<div class='article-summary'>",
         article.summary,
+        "</div>",
+        "</div>",
         "</div>",
         "</div>"
       ].join("")
@@ -130,7 +136,7 @@ $(document).ready(function() {
   function handleArticleDelete() {
     // This function handles deleting articles/headlines
     // We grab the id of the article to delete from the panel element the delete button sits inside
-    var articleToDelete = $(this).parents(".panel").data();
+    var articleToDelete = $(this).parents(".row").data();
     // Using a delete method here just to be semantic since we are deleting an article/headline
     $.ajax({
       method: "DELETE",
@@ -144,9 +150,8 @@ $(document).ready(function() {
   }
 
   function handleArticleNotes() {
-    // This function handles opending the notes modal and displaying our notes
-    // We grab the id of the article to get notes for from the panel element the delete button sits inside
-    var currentArticle = $(this).parents(".panel").data();
+
+    var currentArticle = $(this).parents(".row").data();
     // Grab any notes with this headline/article id
     $.get("/api/notes/" + currentArticle._id).then(function(data) {
       // Constructing our initial HTML to add to the notes modal
@@ -163,8 +168,8 @@ $(document).ready(function() {
         "</div>"
       ].join("");
       // Adding the formatted HTML to the note modal
-      bootbox.dialog({
-        message: modalText,
+      mbox.prompt({
+        modalText,
         closeButton: true
       });
       var noteData = {
@@ -194,7 +199,7 @@ $(document).ready(function() {
       };
       $.post("/api/notes", noteData).then(function() {
         // When complete, close the modal
-        bootbox.hideAll();
+        mbox.hideAll();
       });
     }
   }
