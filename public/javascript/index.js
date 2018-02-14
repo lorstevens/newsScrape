@@ -121,7 +121,8 @@ $(document).ready(function() {
       // already in our collection, re render the articles on the page
       // and let the user know how many unique articles we were able to save
       initPage();
-      bootbox.alert("<h3 class='text-center m-top-80'>" + data.message + "<h3>");
+      mbox.alert("<h3 class='text-center m-top-80'>" + data.message + "<h3>");
+      console.log(data.message)
     });
   }
 });
